@@ -55,108 +55,6 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sh;
 
 
-//    TextView correct_answer_display1 = (TextView) findViewById(R.id.correct_answer_display1);
-//    TextView correct_answer_display2 = (TextView) findViewById(R.id.correct_answer_display2);
-
-
-   /** @Override
-    protected void onPause() {
-        super.onPause(); */
-
-
-//    public SharedPreferences
-//    getSharedPreferences(String string_winning_streak, int mode ) {}
-
-        // Storing data into SharedPreferences
-       /** SharedPreferences sharedPreferences
-                = getSharedPreferences("longest_winning_streak",
-                MODE_PRIVATE); */
-
-//   // Creating an Editor object
-//    // to edit(write to the file)
-    /**    SharedPreferences.Editor myEdit
-                = sharedPreferences.edit();
-
-        myEdit.putInt("streak", streak);
-
-        myEdit.apply(); } */
-
-//
-//        String s1 = sharedPreferences.getString("streak", " ");
-//        String longest = "LONGEST STREAK: " + s1;
-//        longest_streak.setText(longest);
-//    }
-   /** @Override
-    protected  void onResume()
-    {
-        super.onResume() ;
-        TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak) ;
-        SharedPreferences sharedPreferences
-                = getSharedPreferences("longest_winning_streak",
-                MODE_PRIVATE);
-        String s1 = sharedPreferences.getString("streak" , "");
-        String s2 = ("LONGEST STREAK: " + s1 ) ;
-        longest_streak.setText(s2);
-    } */
-
-////    protected void onResume()
-//    {
-//        super.onResume();
-//
-//        SharedPreferences sh
-//            = getSharedPreferences( "0" ,
-//               MODE_PRIVATE);
-//
-//
-//
-//
-//        // Fetching the stored data
-//        // from the SharedPreference
-//       SharedPreferences sh
-//                = getSharedPreferences("0",
-//     /           MODE_APPEND );
-//
-//        String s1 = sh.getString("name", "");
-//        int a = sh.getInt("age", 0);
-//
-//        // Setting the fetched data
-//        // in the EditTexts
-////        name.setText(s1);
-////        age.setText(String.valueOf(a));
-//    }
-//
-//    // Store the data in the SharedPreference
-//    // in the onPause() method
-//    // When the user closes the application
-//    // onPause() will be called
-//    // and data will be stored
-//    @Override
-//    protected void onPause()
-//    {
-//        super.onPause();
-//
-//        // Creating a shared pref object
-//        // with a file name "MySharedPref" in private mode
-//        SharedPreferences sharedPreferences
-//                = getSharedPreferences("MySharedPref",
-//                MODE_PRIVATE);
-//        SharedPreferences.Editor myEdit
-//                = sharedPreferences.edit();
-//        myEdit.putString("name",
-//                name.getText().toString());
-//        myEdit.putInt("age",
-//                Integer.parseInt(
-//                        age.getText().toString()));
-//        myEdit.commit();
-//    }
-//}
-//
-//
-//
-//
-//
-//
-//
 
 
     @Override
@@ -277,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
         final boolean checked3 = option3.isChecked();
 
 
-//         CountDownTimer timer1 = null ;
         timer1 = new CountDownTimer(11000, 1000) {
             int counter = 10;
 
@@ -329,14 +226,11 @@ public class MainActivity extends AppCompatActivity {
 
         long[] pattern = {0, 100, 1000};
 
-//        parent.setBackgroundColor(Color.parseColor("#006600"));
 
 
         String correct = "YOUR ANSWER IS CORRECT :)";
         String wrong = "your answer is wrong :(";
-//        String show_correct = "The correct answer is : ";
-//        String correct_answer = divisor;
-        // Is the button now checked?
+
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
@@ -353,7 +247,6 @@ public class MainActivity extends AppCompatActivity {
                         correct_answer_display1.setText(show_correct);
                         correct_answer_display2.setText(divisor);
                         streak = 0;
-//                        assert v != null;
                         v.vibrate(pattern, -1);
                         parent.setBackgroundColor(Color.parseColor("#660000"));
                         break;
@@ -370,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
                         correct_answer_display1.setText(show_correct);
                         correct_answer_display2.setText(divisor);
                         streak = 0;
-//                        assert v != null;
                         v.vibrate(pattern, -1);
                         parent.setBackgroundColor(Color.parseColor("#660000"));
                         break;
@@ -388,7 +280,6 @@ public class MainActivity extends AppCompatActivity {
                         correct_answer_display1.setText(show_correct);
                         correct_answer_display2.setText(divisor);
                         streak = 0;
-//                        assert v != null;
                         v.vibrate(pattern, -1);
                         parent.setBackgroundColor(Color.parseColor("#660000"));
                         break;
@@ -397,7 +288,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
         String string_streak = Integer.toString(streak, 10);
-        /** here write the staement to add streak into a text view*/
         streak_value.setText(string_streak);
         streak = Integer.parseInt(string_streak, 10);
         MainActivity object = new MainActivity();
