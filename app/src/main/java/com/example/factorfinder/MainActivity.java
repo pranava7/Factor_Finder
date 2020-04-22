@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         options.setVisibility(View.VISIBLE);
 
-
         int num = Integer.parseInt(str, 10);
 
 
