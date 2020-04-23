@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -99,14 +100,34 @@ public class MainActivity extends AppCompatActivity {
         final RadioButton option1 = findViewById(R.id.option1);
         final RadioButton option2 = findViewById(R.id.option2);
         final RadioButton option3 = findViewById(R.id.option3);
+
+
+
         Editable number = num1.getText();
-        tv.setText(number);
+
+
         final String str = num1.getText().toString();
 
-        options.setVisibility(View.VISIBLE);
+        if (str.equals("")){
+            Toast.makeText(this, "Enter a no. greater than 4", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         int num = Integer.parseInt(str, 10);
 
+        if (num < 4) {
+            Toast.makeText(this, "Enter a no. greater than 4", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+
+
+
+
+        tv.setText(number);
+        options.setVisibility(View.VISIBLE) ;
 
         ArrayList<Integer> divisors = new ArrayList<Integer>();
         ArrayList<Integer> nondivisors = new ArrayList<Integer>();
