@@ -123,11 +123,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
         tv.setText(number);
         options.setVisibility(View.VISIBLE) ;
+
+
+        option1.setClickable(true);
+        option2.setClickable(true);
+        option3.setClickable(true);
 
         ArrayList<Integer> divisors = new ArrayList<Integer>();
         ArrayList<Integer> nondivisors = new ArrayList<Integer>();
@@ -322,6 +324,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }.start();
+
+        RadioButton option1 = findViewById(R.id.option1);
+        RadioButton option2 = findViewById(R.id.option2);
+        RadioButton option3 = findViewById(R.id.option3);
+
+        option1.setClickable(false);
+        option2.setClickable(false);
+        option3.setClickable(false);
+
+
 
         TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak) ;
 
