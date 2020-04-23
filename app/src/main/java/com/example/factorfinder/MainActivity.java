@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         Editable number = num1.getText();
 
 
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
+        submit.setClickable(false);
 
         tv.setText(number);
         options.setVisibility(View.VISIBLE) ;
@@ -358,11 +359,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
     }
 
 
@@ -389,6 +385,10 @@ public class MainActivity extends AppCompatActivity {
         correct_answer_display2_2.setText("");
         countdown.setText("");
         optionsoptions.setVisibility(View.INVISIBLE);
+
+        Button submit = findViewById(R.id.submit_button);
+        submit.setClickable(true);
+
 
         check = false;
 
