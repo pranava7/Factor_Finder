@@ -96,12 +96,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button submit = findViewById(R.id.submit_button);
+        Button reset = findViewById(R.id.reset);
         RadioGroup options = findViewById(R.id.options);
         final RadioButton option1 = findViewById(R.id.option1);
         final RadioButton option2 = findViewById(R.id.option2);
         final RadioButton option3 = findViewById(R.id.option3);
 
-
+   reset.setClickable(false);
 
 
         Editable number = num1.getText();
@@ -243,11 +244,13 @@ public class MainActivity extends AppCompatActivity {
         TextView streak_value = (TextView) findViewById(R.id.streak_value);
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         final View parent = findViewById(R.id.parent);
-
+        Button reset = findViewById(R.id.reset);
         check = true;
 
 
         long[] pattern = {0, 100, 1000};
+
+        reset.setClickable(true);
 
 
 
