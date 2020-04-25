@@ -1,15 +1,10 @@
 package com.example.factorfinder;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.os.Vibrator;
 import android.text.Editable;
 import android.view.View;
@@ -21,13 +16,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -96,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button submit = findViewById(R.id.submit_button);
-        Button reset = findViewById(R.id.reset);
-        RadioGroup options = findViewById(R.id.options);
+        final Button reset = findViewById(R.id.reset);
+        final RadioGroup options = findViewById(R.id.options);
         final RadioButton option1 = findViewById(R.id.option1);
         final RadioButton option2 = findViewById(R.id.option2);
         final RadioButton option3 = findViewById(R.id.option3);
@@ -199,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         final boolean checked3 = option3.isChecked();
 
 
-        timer1 = new CountDownTimer(11000, 1000) {
+        timer1 = new CountDownTimer(10000, 1000) {
             int counter = 10;
 
             public void onTick(long millisUntilFinished) {
@@ -217,6 +210,10 @@ public class MainActivity extends AppCompatActivity {
                 correct_answer_display1.setText(show_correct);
                 correct_answer_display2.setText(divisor);
                 streak = 0;
+                reset.setClickable(true);
+                option1.setClickable(false);
+                option2.setClickable(false);
+                option3.setClickable(false);
             }
         }.start();
     }
