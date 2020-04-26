@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         final boolean checked3 = option3.isChecked();
 
 
-        timer1 = new CountDownTimer(10000, 1000) {
+        timer1 = new CountDownTimer(11000, 1000) {
             int counter = 10;
 
             public void onTick(long millisUntilFinished) {
