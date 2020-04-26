@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     static int int_winning_streak;
 
-    int win1  ;
-    int winwin ;
+    int win1;
+    int winwin;
 
     static String show_correct = "The correct answer is : ";
 
@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sh;
 
-    SharedPreferences sh1 ;
-
-
+    SharedPreferences sh1;
 
 
     @Override
@@ -61,25 +59,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RadioGroup opt = (RadioGroup) findViewById(R.id.options);
-        TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak) ;
-        TextView textView_streak = (TextView) findViewById(R.id.streak_value) ;
+        TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak);
+        TextView textView_streak = (TextView) findViewById(R.id.streak_value);
 
 
         opt.setVisibility(View.INVISIBLE);
 
-        sh = getSharedPreferences("longest_streak" , Context.MODE_PRIVATE) ;
+        sh = getSharedPreferences("longest_streak", Context.MODE_PRIVATE);
 
-        int win2 = sh.getInt(LONGESTSTREAK , 0) ;
-        String s  = "LONGEST STREAK: " + win2 ;
+        int win2 = sh.getInt(LONGESTSTREAK, 0);
+        String s = "LONGEST STREAK: " + win2;
         longest_streak.setText(s);
 
-        sh1 = getSharedPreferences("streak" , Context.MODE_PRIVATE) ;
+        sh1 = getSharedPreferences("streak", Context.MODE_PRIVATE);
 
-        int winwin = sh1.getInt(STREAK , 0) ;
-        String str = "" + winwin ;
+        int winwin = sh1.getInt(STREAK, 0);
+        String str = "" + winwin;
         textView_streak.setText(str);
-
-
 
 
     }
@@ -106,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         final RadioButton option2 = findViewById(R.id.option2);
         final RadioButton option3 = findViewById(R.id.option3);
 
-   reset.setClickable(false);
+        reset.setClickable(false);
 
 
         Editable number = num1.getText();
@@ -114,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String str = num1.getText().toString();
 
-        if (str.equals("")){
+        if (str.equals("")) {
             Toast.makeText(this, "Enter a no. greater than 4", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -130,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         submit.setClickable(false);
 
         tv.setText(number);
-        options.setVisibility(View.VISIBLE) ;
+        options.setVisibility(View.VISIBLE);
 
 
         option1.setClickable(true);
@@ -269,7 +265,6 @@ public class MainActivity extends AppCompatActivity {
         show_correct = "The correct answer is : " + divisor;
 
 
-
         String correct = "YOUR ANSWER IS CORRECT :)";
         String wrong = "your answer is \nwrong :(";
 
@@ -400,23 +395,18 @@ public class MainActivity extends AppCompatActivity {
         option3.setClickable(false);
 
 
-        TextView textView_streak = (TextView) findViewById(R.id.streak_value) ;
+        TextView textView_streak = (TextView) findViewById(R.id.streak_value);
 
-        winwin = sh1.getInt(STREAK , 0) ;
-        String str = "" + winwin ;
+        winwin = sh1.getInt(STREAK, 0);
+        String str = "" + winwin;
         textView_streak.setText(str);
 
 
+        TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak);
 
 
-
-
-
-        TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak) ;
-
-
-        win1 = sh.getInt(LONGESTSTREAK , 0) ;
-        String s  = "LONGEST STREAK: " + win1 ;
+        win1 = sh.getInt(LONGESTSTREAK, 0);
+        String s = "LONGEST STREAK: " + win1;
         longest_streak.setText(s);
 
         if (streak >= win1) {
@@ -431,8 +421,6 @@ public class MainActivity extends AppCompatActivity {
             String wining_streak = ("LONGEST STREAK: " + winner);
             longest_streak.setText(wining_streak);
         }
-
-
 
 
     }
