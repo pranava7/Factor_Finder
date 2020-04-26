@@ -130,19 +130,8 @@
         android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:text=""
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/correct_answer_display2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/correct_answer_display1"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:text=""
-        android:textColor="@android:color/black"
         android:textSize="30sp"
-        android:layout_marginRight="16dp"/>
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/reset"

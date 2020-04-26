@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = findViewById(R.id.tvtextview);
         final TextView countdown = findViewById(R.id.countdown_timer);
         final TextView correct_answer_display1 = (TextView) findViewById(R.id.correct_answer_display1);
-        final TextView correct_answer_display2 = (TextView) findViewById(R.id.correct_answer_display2);
         final TextView ans = (TextView) findViewById(R.id.answer);
 
 
@@ -222,7 +221,6 @@ public class MainActivity extends AppCompatActivity {
                 countdown.setText(String.valueOf(counter));
                 ans.setText(timeup);
                 correct_answer_display1.setText(show_correct);
-                correct_answer_display2.setText(divisor);
                 streak = 0;
                 reset.setClickable(true);
                 option1.setClickable(false);
@@ -258,7 +256,6 @@ public class MainActivity extends AppCompatActivity {
     public void onRadioButtonClicked(View view) {
         TextView ans = (TextView) findViewById(R.id.answer);
         TextView correct_answer_display1 = (TextView) findViewById(R.id.correct_answer_display1);
-        TextView correct_answer_display2 = (TextView) findViewById(R.id.correct_answer_display2);
         TextView streak_value = (TextView) findViewById(R.id.streak_value);
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         final View parent = findViewById(R.id.parent);
@@ -269,11 +266,12 @@ public class MainActivity extends AppCompatActivity {
         long[] pattern = {0, 100, 1000};
 
         reset.setClickable(true);
+        show_correct = "The correct answer is : " + divisor;
 
 
 
         String correct = "YOUR ANSWER IS CORRECT :)";
-        String wrong = "your answer is wrong :(";
+        String wrong = "your answer is \nwrong :(";
 
         boolean checked = ((RadioButton) view).isChecked();
 
@@ -297,7 +295,6 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         ans.setText(wrong);
                         correct_answer_display1.setText(show_correct);
-                        correct_answer_display2.setText(divisor);
                         streak = 0;
                         v.vibrate(pattern, -1);
 
@@ -329,7 +326,6 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         ans.setText(wrong);
                         correct_answer_display1.setText(show_correct);
-                        correct_answer_display2.setText(divisor);
                         streak = 0;
 
                         SharedPreferences.Editor editor2 = sh1.edit();
@@ -363,7 +359,6 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         ans.setText(wrong);
                         correct_answer_display1.setText(show_correct);
-                        correct_answer_display2.setText(divisor);
                         streak = 0;
 
                         SharedPreferences.Editor editor2 = sh1.edit();
@@ -452,7 +447,6 @@ public class MainActivity extends AppCompatActivity {
         RadioButton option2option2 = findViewById(R.id.option2);
         RadioButton option3option3 = findViewById(R.id.option3);
         TextView correct_answer_display1_1 = (TextView) findViewById(R.id.correct_answer_display1);
-        TextView correct_answer_display2_2 = (TextView) findViewById(R.id.correct_answer_display2);
         TextView countdown = findViewById(R.id.countdown_timer);
         View parent_view = findViewById(R.id.parent);
         optionsoptions.clearCheck();
@@ -463,7 +457,6 @@ public class MainActivity extends AppCompatActivity {
         num1num1.getText().clear();
         ans.setText("");
         correct_answer_display1_1.setText("");
-        correct_answer_display2_2.setText("");
         countdown.setText("");
         optionsoptions.setVisibility(View.INVISIBLE);
 
