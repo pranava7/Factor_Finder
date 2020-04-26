@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     static String random_option2;
     static String random_option3;
 
+    public static final String LONGESTSTREAK = "longeststreakKey";
     public static final String STREAK = "streakKey";
 
     static String divisor;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     static int int_winning_streak;
 
     int win1  ;
+    int winwin ;
 
     static String show_correct = "The correct answer is : ";
 
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     boolean check = false;
 
     SharedPreferences sh;
+
+    SharedPreferences sh1 ;
 
 
 
@@ -58,15 +62,23 @@ public class MainActivity extends AppCompatActivity {
 
         RadioGroup opt = (RadioGroup) findViewById(R.id.options);
         TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak) ;
+        TextView textView_streak = (TextView) findViewById(R.id.streak_value) ;
 
 
         opt.setVisibility(View.INVISIBLE);
 
         sh = getSharedPreferences("longest_streak" , Context.MODE_PRIVATE) ;
 
-        int win2 = sh.getInt(STREAK , 0) ;
+        int win2 = sh.getInt(LONGESTSTREAK , 0) ;
         String s  = "LONGEST STREAK: " + win2 ;
         longest_streak.setText(s);
+
+        sh1 = getSharedPreferences("streak" , Context.MODE_PRIVATE) ;
+
+        int winwin = sh1.getInt(STREAK , 0) ;
+        String str = "" + winwin ;
+        textView_streak.setText(str);
+
 
 
 
@@ -205,6 +217,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
+
+                TextView streak_value = (TextView) findViewById(R.id.streak_value);
                 countdown.setText(String.valueOf(counter));
                 ans.setText(timeup);
                 correct_answer_display1.setText(show_correct);
@@ -214,6 +228,13 @@ public class MainActivity extends AppCompatActivity {
                 option1.setClickable(false);
                 option2.setClickable(false);
                 option3.setClickable(false);
+
+                SharedPreferences.Editor editor2 = sh1.edit();
+                editor2.putInt(STREAK, streak);
+                editor2.commit();
+
+                int win10 = sh1.getInt(STREAK, 0);
+                streak_value.setText("" + win10);
             }
         }.start();
     }
@@ -263,6 +284,14 @@ public class MainActivity extends AppCompatActivity {
                     if (random_option1.equals(divisor)) {
                         ans.setText(correct);
                         streak = streak + 1;
+
+                        SharedPreferences.Editor editor2 = sh1.edit();
+                        editor2.putInt(STREAK, streak);
+                        editor2.commit();
+
+                        int win10 = sh1.getInt(STREAK, 0);
+                        streak_value.setText("" + win10);
+
                         parent.setBackgroundColor(Color.parseColor("#006600"));
                         break;
                     } else {
@@ -271,6 +300,14 @@ public class MainActivity extends AppCompatActivity {
                         correct_answer_display2.setText(divisor);
                         streak = 0;
                         v.vibrate(pattern, -1);
+
+                        SharedPreferences.Editor editor2 = sh1.edit();
+                        editor2.putInt(STREAK, streak);
+                        editor2.commit();
+
+                        int win10 = sh1.getInt(STREAK, 0);
+                        streak_value.setText("" + win10);
+
                         parent.setBackgroundColor(Color.parseColor("#660000"));
                         break;
                     }
@@ -279,6 +316,14 @@ public class MainActivity extends AppCompatActivity {
                     if (random_option2.equals(divisor)) {
                         ans.setText(correct);
                         streak = streak + 1;
+
+                        SharedPreferences.Editor editor2 = sh1.edit();
+                        editor2.putInt(STREAK, streak);
+                        editor2.commit();
+
+                        int win10 = sh1.getInt(STREAK, 0);
+                        streak_value.setText("" + win10);
+
                         parent.setBackgroundColor(Color.parseColor("#006600"));
                         break;
                     } else {
@@ -286,6 +331,14 @@ public class MainActivity extends AppCompatActivity {
                         correct_answer_display1.setText(show_correct);
                         correct_answer_display2.setText(divisor);
                         streak = 0;
+
+                        SharedPreferences.Editor editor2 = sh1.edit();
+                        editor2.putInt(STREAK, streak);
+                        editor2.commit();
+
+                        int win10 = sh1.getInt(STREAK, 0);
+                        streak_value.setText("" + win10);
+
                         v.vibrate(pattern, -1);
                         parent.setBackgroundColor(Color.parseColor("#660000"));
                         break;
@@ -296,6 +349,15 @@ public class MainActivity extends AppCompatActivity {
                     if (random_option3.equals(divisor)) {
                         ans.setText(correct);
                         streak = streak + 1;
+
+
+                        SharedPreferences.Editor editor2 = sh1.edit();
+                        editor2.putInt(STREAK, streak);
+                        editor2.commit();
+
+                        int win10 = sh1.getInt(STREAK, 0);
+                        streak_value.setText("" + win10);
+
                         parent.setBackgroundColor(Color.parseColor("#006600"));
                         break;
                     } else {
@@ -303,6 +365,14 @@ public class MainActivity extends AppCompatActivity {
                         correct_answer_display1.setText(show_correct);
                         correct_answer_display2.setText(divisor);
                         streak = 0;
+
+                        SharedPreferences.Editor editor2 = sh1.edit();
+                        editor2.putInt(STREAK, streak);
+                        editor2.commit();
+
+                        int win10 = sh1.getInt(STREAK, 0);
+                        streak_value.setText("" + win10);
+
                         v.vibrate(pattern, -1);
                         parent.setBackgroundColor(Color.parseColor("#660000"));
                         break;
@@ -310,10 +380,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-        String string_streak = Integer.toString(streak, 10);
-        streak_value.setText(string_streak);
-        streak = Integer.parseInt(string_streak, 10);
-        MainActivity object = new MainActivity();
+//        String string_streak = Integer.toString(streak, 10);
+//        streak_value.setText(string_streak);
+//        streak = Integer.parseInt(string_streak, 10);
+//        MainActivity object = new MainActivity();
 
         new CountDownTimer(500, 10000) {
             public void onTick(long millisUntilFinished) {
@@ -335,11 +405,22 @@ public class MainActivity extends AppCompatActivity {
         option3.setClickable(false);
 
 
+        TextView textView_streak = (TextView) findViewById(R.id.streak_value) ;
+
+        winwin = sh1.getInt(STREAK , 0) ;
+        String str = "" + winwin ;
+        textView_streak.setText(str);
+
+
+
+
+
+
 
         TextView longest_streak = (TextView) findViewById(R.id.longest_winning_streak) ;
 
 
-        win1 = sh.getInt(STREAK , 0) ;
+        win1 = sh.getInt(LONGESTSTREAK , 0) ;
         String s  = "LONGEST STREAK: " + win1 ;
         longest_streak.setText(s);
 
@@ -347,10 +428,10 @@ public class MainActivity extends AppCompatActivity {
 
 
             SharedPreferences.Editor editor = sh.edit();
-            editor.putInt(STREAK, streak);
+            editor.putInt(LONGESTSTREAK, streak);
             editor.commit();
 
-            int win2 = sh.getInt(STREAK, 0);
+            int win2 = sh.getInt(LONGESTSTREAK, 0);
             String winner = Integer.toString(win2, 10);
             String wining_streak = ("LONGEST STREAK: " + winner);
             longest_streak.setText(wining_streak);
